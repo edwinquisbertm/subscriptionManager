@@ -13,6 +13,8 @@ pip install django
 
 pip install requirements.txt
 
+py manage.py createsuperuser
+
 ./manage.py runserver
 
 # Descripción del Sistema de Gestión de Suscripciones

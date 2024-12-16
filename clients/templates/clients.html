@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Clientes
+{% endblock %}
+
+
+{% block content %}
+  <h1>Gestor de Clientes</h1>
+  
+  <ul>
+    {% for x in myclients %}
+      <li><a href="details/{{ x.id }}">Ver</a> {{ x.name }} | {{ x.email }} | {{ x.phone }} |  {{ x.phone2}} </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Ordenes
+{% endblock %}
+
+
+{% block content %}
+  <h1>Lista de Ordenes</h1>
+  
+  <ul>
+    {% for x in orders_list %}
+      <li><a href="order/{{ x.id }}">Ver</a> {{ x.client.name }} | {{ x.type_plan.type_plan }} | {{ x.status}} </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

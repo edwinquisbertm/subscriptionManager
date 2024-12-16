@@ -1,0 +1,15 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Cliente
+{% endblock %}
+
+
+{% block content %}
+    <h1>{{ myclient.name }}</h1>
+    
+    <p>Phone: {{ myclient.phone }}</p>
+    <p>Member since: {{ myclient.created_at }}</p>
+
+    <p>Back to <a href="/clients">Lista de Clientes</a></p>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Orden
+{% endblock %}
+
+
+{% block content %}
+    <h1>{{ myorder.id }}</h1>
+    <h2>{{ myorder.client.name }}</h2>
+    <p>Estado: {{ myorder.status }}</p>
+    <p>Plan: {{ myorder.type_plan.type_plan }}</p>
+    <p>Telefono: {{ myorder.phone }}</p>
+    <p>Dirección: {{ myorder.address }}</p>
+    <p>Fecha de Creación: {{ myorder.date }}</p>
+
+    <p>Back to <a href="../..">Lista de Solicitudes</a></p>
+{% endblock %}

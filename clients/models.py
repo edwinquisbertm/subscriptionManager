@@ -11,7 +11,7 @@ class Client(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     
     def __str__(self):
-        return f"{self.id} - {self.name} - {self.email}"
+        return f"{self.id} - {self.name} - {self.email} - {self.created_at}"
     
 class TypePlan(models.Model):
     type_plan = models.CharField(max_length=100)
@@ -21,15 +21,6 @@ class TypePlan(models.Model):
     def __str__(self):
         return f"{self.id} - {self.type_plan} - {self.price} - {self.duration}"
     
-class Payment(models.Model):
-    amount = models.FloatField()
-    date_payment = models.DateField(null=True, blank=True)
-    date_end = models.DateField(null=True, blank=True)
-    orders = models.ForeignKey('Orders', on_delete=models.CASCADE)
-    status = models.CharField(max_length=100)
-    
-    def __str__(self):
-        return f"{self.id} - {self.amount} - {self.orders} - {self.date_payment}"
     
 class Orders(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
@@ -41,3 +32,13 @@ class Orders(models.Model):
     
     def __str__(self):
         return f"{self.id} - {self.client.name} - {self.type_plan.type_plan} - {self.date} - {self.status}"
+
+class Payment(models.Model):
+    amount = models.FloatField()
+    date_payment = models.DateField(null=True, blank=True)
+    date_end = models.DateField(null=True, blank=True)
+    orders = models.ForeignKey(Orders, on_delete=models.CASCADE, null=True, blank=True)
+    status = models.CharField(max_length=100, null=True, blank=True)
+    
+    def __str__(self):
+        return f"{self.id} - {self.amount} - {self.orders} - {self.date_payment}"
