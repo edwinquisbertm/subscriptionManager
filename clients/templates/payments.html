@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Pagos
+{% endblock %}
+
+
+{% block content %}
+  <h1>Lista de Pagos</h1>
+  
+  <ul>
+    {% for x in payment_list %}
+      <li><a href="order/{{ x.id }}">Ver</a> <strong>Cliente:</strong> {{ x.orders.client.name}} | <strong>Pago realizado:</strong> {{ x.amount }} Bs. | <strong>Plan:</strong> {{ x.orders.type_plan.type_plan }} | <strong>Estado:</strong> {{ x.status}} </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

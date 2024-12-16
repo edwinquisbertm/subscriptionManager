@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Planes
+{% endblock %}
+
+
+{% block content %}
+  <h1>Lista de Planes</h1>
+  
+  <ul>
+    {% for x in plan_list %}
+      <li><a href="details/{{ x.id }}">Ver</a> {{ x.type_plan }} | {{ x.price }} Bs. | {{ x.duration }} Días </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

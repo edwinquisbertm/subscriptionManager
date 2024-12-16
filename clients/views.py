@@ -1,12 +1,20 @@
 from django.http import HttpResponse
 from django.template import loader
-from .models import Client, Orders
+from .models import Client, Orders, TypePlan, Payment
 
 def clients(request):
   myclients = Client.objects.all().values()
   template = loader.get_template('clients.html')
   context = {
     'myclients': myclients,
+  }
+  return HttpResponse(template.render(context, request))
+
+def list_plan(request):
+  plan_list = TypePlan.objects.all().values()
+  template = loader.get_template('plans.html')
+  context = {
+    'plan_list': plan_list,
   }
   return HttpResponse(template.render(context, request))
 
@@ -32,5 +40,13 @@ def details_order(request, id):
   template = loader.get_template('details_order.html')
   context = {
     'myorder': myorder,
+  }
+  return HttpResponse(template.render(context, request))
+
+def list_payment(request):
+  payment_list = Payment.objects.select_related('orders').all()
+  template = loader.get_template('payments.html')
+  context = {
+    'payment_list': payment_list,
   }
   return HttpResponse(template.render(context, request))

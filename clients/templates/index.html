@@ -1,0 +1,49 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Inicio
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="jumbotron">
+        <h1 class="display-4">Bienvenido al Sistema de Gestión de Suscripciones</h1>
+        <p class="lead">Administra tus clientes, planes, pedidos y pagos de manera eficiente.</p>
+        <hr class="my-4">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Clientes</h5>
+                        <a href="{% url 'clientes' %}" class="btn btn-primary">Ir a Clientes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Planes</h5>
+                        <a href="{% url 'planes' %}" class="btn btn-primary">Ir a Planes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Pedidos</h5>
+                        <a href="{% url 'pedidos' %}" class="btn btn-primary">Ir a Pedidos</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Pagos</h5>
+                        <a href="{% url 'pagos' %}" class="btn btn-primary">Ir a Pagos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
