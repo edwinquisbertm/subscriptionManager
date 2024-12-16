@@ -2,6 +2,11 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import Client, Orders, TypePlan, Payment
 
+def home(request):
+  template = loader.get_template('home.html')
+  context = {}
+  return HttpResponse(template.render(context, request))
+
 def clients(request):
   myclients = Client.objects.all().values()
   template = loader.get_template('clients.html')

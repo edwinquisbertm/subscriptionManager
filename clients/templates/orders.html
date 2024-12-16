@@ -6,11 +6,33 @@
 
 
 {% block content %}
-  <h1>Lista de Ordenes</h1>
-  
-  <ul>
-    {% for x in orders_list %}
-      <li><a href="order/{{ x.id }}">Ver</a> {{ x.client.name }} | {{ x.type_plan.type_plan }} | {{ x.status}} </li>
-    {% endfor %}
-  </ul>
+  <div class="container mt-5">
+    <h1 class="text-center">Lista de Pedidos</h1>
+    <table class="table table-bordered table-striped text-center">
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Tipo de Plan</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for x in orders_list %}
+          <tr>
+            <td>{{ x.client.name }}</td>
+            <td>{{ x.type_plan.type_plan }}</td>
+            <td>{{ x.status }}</td>
+            <td>
+              <a href="../orders/order/{{ x.id }}" class="btn btn-primary btn-sm">Ver</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="text-center mt-3">
+      <a href="/payments" class="btn btn-primary">Realizar un Pago</a>
+      <a href="/" class="btn btn-secondary">Pagina Principal</a>
+    </div>
+  </div>
 {% endblock %}

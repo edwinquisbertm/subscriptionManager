@@ -6,13 +6,46 @@
 
 
 {% block content %}
-    <h1>{{ myorder.id }}</h1>
-    <h2>{{ myorder.client.name }}</h2>
-    <p>Estado: {{ myorder.status }}</p>
-    <p>Plan: {{ myorder.type_plan.type_plan }}</p>
-    <p>Telefono: {{ myorder.phone }}</p>
-    <p>Dirección: {{ myorder.address }}</p>
-    <p>Fecha de Creación: {{ myorder.date }}</p>
-
-    <p>Back to <a href="../..">Lista de Solicitudes</a></p>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="text-center">Detalle del Pedido</h1>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th>ID</th>
+            <td>{{ myorder.id }}</td>
+          </tr>
+          <tr>
+            <th>Cliente</th>
+            <td>{{ myorder.client.name }}</td>
+          </tr>
+          <tr>
+            <th>Estado</th>
+            <td>{{ myorder.status }}</td>
+          </tr>
+          <tr>
+            <th>Plan</th>
+            <td>{{ myorder.type_plan.type_plan }}</td>
+          </tr>
+          <tr>
+            <th>Teléfono</th>
+            <td>{{ myorder.phone }}</td>
+          </tr>
+          <tr>
+            <th>Dirección</th>
+            <td>{{ myorder.address }}</td>
+          </tr>
+          <tr>
+            <th>Fecha de Creación</th>
+            <td>{{ myorder.date }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-center mt-3">
+        <a href="../.." class="btn btn-primary">Lista de Solicitudes</a>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

@@ -1,0 +1,54 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Home
+{% endblock %}
+
+
+{% block content %}
+<div class="container mt-5">
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Sistema de Gestión de Suscripciones - StreamBo</h1>
+        <p class="lead">Bienvenido al sistema de gestión de suscripciones de la empresa StreamBo. Este sistema tiene varias opciones muy importantes para administrar la gestión de clientes, agregar planes y sus caracteristicas. Agendar pedidos y realizar su seguimiento y el registro de los pagos realizados.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Clientes</h5>
+                    <p class="card-text">Gestiona la información de tus clientes.</p>
+                    <a href="{% url 'clients' %}" class="btn btn-primary mt-auto">Ir a Clientes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Planes</h5>
+                    <p class="card-text">Administra los planes de suscripción.</p>
+                    <a href="{% url 'plans' %}" class="btn btn-primary mt-auto">Ir a Planes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Pedidos</h5>
+                    <p class="card-text">Revisa y gestiona los pedidos.</p>
+                    <a href="{% url 'orders' %}" class="btn btn-primary mt-auto">Ir a Pedidos</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Pagos</h5>
+                    <p class="card-text">Controla y verifica los pagos.</p>
+                    <a href="{% url 'payments' %}" class="btn btn-primary mt-auto">Ir a Pagos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

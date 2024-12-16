@@ -6,11 +6,36 @@
 
 
 {% block content %}
-  <h1>Lista de Pagos</h1>
-  
-  <ul>
-    {% for x in payment_list %}
-      <li><a href="order/{{ x.id }}">Ver</a> <strong>Cliente:</strong> {{ x.orders.client.name}} | <strong>Pago realizado:</strong> {{ x.amount }} Bs. | <strong>Plan:</strong> {{ x.orders.type_plan.type_plan }} | <strong>Estado:</strong> {{ x.status}} </li>
-    {% endfor %}
-  </ul>
+  <div class="container">
+    <h1 class="text-center my-4">Lista de Pagos</h1>
+    
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Cliente</th>
+          <th>Pago realizado</th>
+          <th>Plan</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for x in payment_list %}
+          <tr>
+            <td>{{ x.orders.client.name }}</td>
+            <td>{{ x.amount }} Bs.</td>
+            <td>{{ x.orders.type_plan.type_plan }}</td>
+            <td>{{ x.status }}</td>
+            <td>
+              <a href="../orders/order/{{ x.id }}" class="btn btn-primary btn-sm">Ver</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="text-center mt-3">
+      <a href="/orders" class="btn btn-success">Crear un Pedido</a>
+      <a href="/" class="btn btn-secondary">Pagina Principal</a>
+    </div>
+  </div>
 {% endblock %}

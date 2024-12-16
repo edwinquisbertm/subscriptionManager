@@ -6,11 +6,37 @@
 
 
 {% block content %}
-  <h1>Gestor de Clientes</h1>
-  
-  <ul>
-    {% for x in myclients %}
-      <li><a href="details/{{ x.id }}">Ver</a> {{ x.name }} | {{ x.email }} | {{ x.phone }} |  {{ x.phone2}} </li>
-    {% endfor %}
-  </ul>
+  <div class="container">
+    <h1 class="text-center">Clientes</h1>
+    
+    <table class="table table-striped text-center">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Teléfono 2</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for x in myclients %}
+          <tr>
+            <td>{{ x.name }}</td>
+            <td>{{ x.email }}</td>
+            <td>{{ x.phone }}</td>
+            <td>{{ x.phone2 }}</td>
+            <td>
+              <a href="../details/{{ x.id }}" class="btn btn-primary">Ver</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="text-center mt-3">
+      <a href="/orders" class="btn btn-success">Crear un Pedido</a>
+      <a href="/" class="btn btn-secondary">Pagina Principal</a>
+    </div>
+  </div>
 {% endblock %}

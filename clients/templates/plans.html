@@ -6,11 +6,31 @@
 
 
 {% block content %}
-  <h1>Lista de Planes</h1>
-  
-  <ul>
-    {% for x in plan_list %}
-      <li><a href="details/{{ x.id }}">Ver</a> {{ x.type_plan }} | {{ x.price }} Bs. | {{ x.duration }} Días </li>
-    {% endfor %}
-  </ul>
+  <div class="container">
+    <h1 class="text-center">Lista de Planes</h1>
+    
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th class="text-center">Tipo de Plan</th>
+          <th class="text-center">Precio (Bs.)</th>
+          <th class="text-center">Duración (Días)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for x in plan_list %}
+          <tr>
+            <td class="text-center">{{ x.type_plan }}</td>
+            <td class="text-center">{{ x.price }}</td>
+            <td class="text-center">{{ x.duration }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="text-center">
+      <a href="/orders" class="btn btn-success">Crear un Pedido</a>
+      <a href="/" class="btn btn-secondary">Pagina Principal</a>
+    </div>
+  </div>
 {% endblock %}
