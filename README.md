@@ -31,7 +31,7 @@ En Windows
 ```bash
   source venv/Script/activate
 ```
-En linux
+En Linux
 ```bash
   source venv/bin/activate
 ```
@@ -39,7 +39,7 @@ En linux
 - Instalamos las dependencias
 
 ```bash
-  pip install requirements.txt
+  pip install -r requirements.txt
 ```
 - Creamos la Base de Datos
 
