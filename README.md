@@ -8,36 +8,63 @@ Sistema de gestión de suscripciones, este sistema ayudara a la empresas que tie
 
 ## Instalación
 
-Inicializamos un entorno virtual
+- Clonamos el Repositorio
+
+```bash
+git clone https://github.com/edwinquisbertm/subscriptionManager.git
+```
+
+- Ingresamos a la carpeta "subscriptionManager"
+
+```bash
+    cd subscriptionManager
+```
+
+- Creamos un entorno virtual
 
 ```bash
   python -m venv venv
+```
+- Inicializamos el entorno virtual
 
+En Windows
+```bash
   source venv/Script/activate
-ó
+```
+En linux
+```bash
   source venv/bin/activate
-  
 ```
 
-Instalamos las dependencias
+- Instalamos las dependencias
 
 ```bash
   pip install requirements.txt
 ```
-Creamos la Base de Datos
+- Creamos la Base de Datos
 
 ```bash
   python manage.py migrate
 ```
 
-Creamos un super usuario para gestionar la Base de Datos
+- Creamos un super usuario para gestionar la Administración
 
 ```bash
   python manage.py createsuperuser
 ```
 
-Iniciamos la aplicación con
+- Iniciamos la aplicación con
 
 ```bash
   python manage.py runserver
+```
+
+## Rutas
+- Home
+```bash
+http://127.0.0.1:8000/
+```
+- administracion de DJango
+```bash
+http://127.0.0.1:8000/admin
 ```
