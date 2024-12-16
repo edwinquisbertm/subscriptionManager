@@ -1,21 +1,43 @@
-# subscriptionManager
-Sistema de Gestión de Suscripciones
+# Subscription Manager
+
+Sistema de gestión de suscripciones, este sistema ayudara a la empresas que tienen un modelo de negocio por suscripción el poder gestionar a sus clientes, planes, pedidos y pagos.
+
+## Autor
+
+- [@edwinquisbertm](https://github.com/edwinquisbertm)
 
 ## Instalación
-python -m venv venv
 
-source venv/Script/activate
+Inicializamos un entorno virtual
 
-pip install django
+```bash
+  python -m venv venv
 
-./manage.py migrate
-./manage.py makemigrate
+  source venv/Script/activate
+ó
+  source venv/bin/activate
+  
+```
 
-pip install requirements.txt
+Instalamos las dependencias
 
-py manage.py createsuperuser
+```bash
+  pip install requirements.txt
+```
+Creamos la Base de Datos
 
-./manage.py runserver
+```bash
+  python manage.py migrate
+```
 
-# Descripción del Sistema de Gestión de Suscripciones
-El sistema permite registrar a los clientes, establecer tipos de planes y gestionar los pagos.
+Creamos un super usuario para gestionar la Base de Datos
+
+```bash
+  python manage.py createsuperuser
+```
+
+Iniciamos la aplicación con
+
+```bash
+  python manage.py runserver
+```
