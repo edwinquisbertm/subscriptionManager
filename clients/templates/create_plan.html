@@ -1,0 +1,33 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Crear Plan
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">Crear Nuevo Plan</h1>
+            <form method="post" class="text-center">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name" class="fw-bold">Nombre del Plan</label>
+                    <input type="text" name="type_plan" class="form-control text-center" id="type_plan">
+                </div>
+                <div class="form-group">
+                    <label for="price" class="fw-bold">Precio</label>
+                    <input type="price" name="price" class="form-control text-center" id="price">
+                </div>
+                <div class="form-group">
+                    <label for="duration" class="fw-bold">Días de Duración</label>
+                    <input type="text" name="duration" class="form-control text-center" id="duration">
+                </div>
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary">Crear Cliente</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
