@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from django.template import loader
+from django.shortcuts import render, redirect
+from .forms import ClientForm, PlanForm, OrderForm, PaymentForm
 from .models import Client, Orders, TypePlan, Payment
 
 def home(request):
@@ -55,3 +57,46 @@ def list_payment(request):
     'payment_list': payment_list,
   }
   return HttpResponse(template.render(context, request))
+
+def create_client(request):
+    if request.method == 'POST':
+        form = ClientForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('clients')
+    else:
+        form = ClientForm()
+    return render(request, 'create_client.html', {'form': form})
+
+def create_plan(request):
+    if request.method == 'POST':
+        form = PlanForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('plans')
+    else:
+        form = PlanForm()
+    return render(request, 'create_plan.html', {'form': form})
+
+def create_order(request):
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('orders')
+    else:
+        form = OrderForm()
+    clients = Client.objects.all()
+    plans = TypePlan.objects.all()
+    return render(request, 'create_order.html', {'form': form, 'clients': clients, 'plans': plans})
+
+def create_payment(request):
+    if request.method == 'POST':
+        form = PaymentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('payments')
+    else:
+        form = PaymentForm()
+    orders = Orders.objects.all()
+    return render(request, 'create_payment.html', {'form': form, 'orders': orders})
