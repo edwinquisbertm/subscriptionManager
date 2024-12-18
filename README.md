@@ -1,4 +1,4 @@
-# Subscription Manager
+# Proyecto UCATEC - Gestor de Suscripciones
 
 Sistema de gestión de suscripciones, este sistema ayudara a la empresas que tienen un modelo de negocio por suscripción el poder gestionar a sus clientes, planes, pedidos y pagos.
 
